@@ -2,13 +2,15 @@
   "name": "evm-disassembler-ts",
   "version": "0.0.1",
   "description": "This tool performs static analysis on EVM bytecode to provide a higher level of abstraction for the bytecode than raw EVM operations.",
-  "main": "index.js",
+  "main": "src/index.ts",
   "scripts": {
+    "start": "ts-node src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "quiet-node",
   "license": "Apache-2.0",
   "devDependencies": {
+    "ts-node": "^10.9.1",
     "typescript": "^5.3.2"
   }
 }
