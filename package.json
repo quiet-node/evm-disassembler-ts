@@ -1,0 +1,11 @@
+{
+  "name": "evm-disassembler-ts",
+  "version": "0.0.1",
+  "description": "This tool performs static analysis on EVM bytecode to provide a higher level of abstraction for the bytecode than raw EVM operations.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "quiet-node",
+  "license": "Apache-2.0"
+}
