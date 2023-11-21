@@ -1,4 +1,5 @@
 import { Disassembler } from '../disassembler';
+import { EVM_OPCODES } from '../evm_opcodes';
 import { EvmOpcode } from '../types';
 
 export class Utils {
@@ -44,9 +45,7 @@ export class Utils {
     bytecode: string,
     index: number
   ) {
-    const mnemonic = opcode.mnemonic;
-
-    const operandNum = parseInt(mnemonic[mnemonic.length - 1]);
+    const operandNum = opcode.operand;
 
     // @notice the opcode will push `operandNum` bytes (`operandNum` * 2 letters) to the operands array.
     //         Therefore, offset will skip the first byte of the opcodes and `operandNum` bytes of the operands
@@ -57,7 +56,7 @@ export class Utils {
     let operands = [];
 
     for (let i = 0; i < operandString.length; i += 2) {
-      operands.push(`0x${operandString.substring(i, i + 2)}`);
+      operands.push(`${operandString.substring(i, i + 2)}`);
     }
 
     return { offset, operands };
@@ -66,21 +65,24 @@ export class Utils {
   /**
    * @dev parses byte to get opcode
    * @param bytecode: string
-   * @param opcode: EvmOpcode | null
+   * @param hex: string
    * @param index: number
    * @return [index: string, mnemonic: string, operands: string]
    */
-  public static parseBytecode(
-    bytecode: string,
-    opcode: EvmOpcode | undefined,
-    index: number
-  ) {
+  public static parseBytecode(bytecode: string, hex: string, index: number) {
     const index16 = `0x${index.toString(16)}`;
+
+    const opcode = EVM_OPCODES.get(hex);
 
     if (!opcode) {
       return {
         index,
-        opcodeRepresentation: { index16, mnemonic: 'INVALID', operand: [] },
+        opcodeRepresentation: {
+          index16,
+          hex,
+          mnemonic: 'INVALID',
+          operand: [],
+        },
       };
     }
 
@@ -91,6 +93,7 @@ export class Utils {
         index: result.offset,
         opcodeRepresentation: {
           index16,
+          hex,
           mnemonic: opcode.mnemonic,
           operand: result.operands,
         },
@@ -100,6 +103,7 @@ export class Utils {
         index,
         opcodeRepresentation: {
           index16,
+          hex,
           mnemonic: opcode.mnemonic,
           operand: [],
         },
