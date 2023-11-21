@@ -88,4 +88,33 @@ describe('EVM Bytecode Disassembler Tests', () => {
       expect(result.opcodeRepresentation.operand.length).to.eq(0);
     });
   });
+
+  describe('Disassmebler tests', () => {
+    it('Should disassemble a valid bytecode', () => {
+      DISASSEMBLER_TESTING_ASSETS.forEach((asset) => {
+        const disassembly = Disassembler.disassemble(asset.bytecode);
+
+        for (let i = 0; i < disassembly!.length; i++) {
+          expect(disassembly![i].index16).to.eq(
+            asset.expectedDisassembly[i].index16
+          );
+          expect(disassembly![i].hex).to.eq(asset.expectedDisassembly[i].hex);
+          expect(disassembly![i].mnemonic).to.eq(
+            asset.expectedDisassembly[i].mnemonic
+          );
+          expect(disassembly![i].operand.join('')).to.eq(
+            asset.expectedDisassembly[i].operand.join('')
+          );
+        }
+      });
+    });
+
+    it('Should return null if bytecode is not valid', () => {
+      const INVALID_BYTECODE = '0xabc';
+
+      const disassembly = Disassembler.disassemble(INVALID_BYTECODE);
+
+      expect(disassembly).to.be.null;
+    });
+  });
 });

@@ -1,22 +1,25 @@
+import { Utils } from '../Utils';
+
 export class Disassembler {
   /**
-   * @dev sanitize & evaluate bytecode
-   * @param bytecode
-   * @returns string
+   * @dev disassembles bytecode into EVM opcodes
+   * @param bytecode: string
+   * @return
    */
-  public static prepBytecode(bytecode: string): string | null {
-    // trim bytecode
-    bytecode = bytecode.trim();
+  public static disassemble(bytecode: string) {
+    const properBytecode = Utils.prepBytecode(bytecode);
+    if (!properBytecode) return null;
+    const disassembly = [];
 
-    // check if bytecode has valid length
-    if (bytecode.length % 2 !== 0) return null;
+    for (let i = 0; i < properBytecode.length; i += 2) {
+      const hex = properBytecode.substring(i, i + 2);
+      const parsedOpcodeResult = Utils.parseBytecode(properBytecode, hex, i);
 
-    // omit 0x prefix
-    if (bytecode.startsWith('0x')) {
-      bytecode = bytecode.substring(2);
+      disassembly.push(parsedOpcodeResult.opcodeRepresentation);
+
+      i = parsedOpcodeResult.index;
     }
 
-    // return trimmed and lower cased bytecode
-    return bytecode.toLocaleLowerCase();
+    return disassembly;
   }
 }
