@@ -22,7 +22,7 @@ describe('EVM Bytecode Disassembler Tests', () => {
     });
 
     it('Should get operands for opcodes in PUSH family', () => {
-      const bytecode = '6380401abf2d5f'; // must be proper bytecode
+      const bytecode = '6380401abf2d5f'; // must be proper and clean bytecode
       const index = 0;
       const opcode = EVM_OPCODES.get(bytecode.substring(index, index + 2)); // PUSH4
 
