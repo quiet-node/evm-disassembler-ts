@@ -8,6 +8,7 @@ export class Disassembler {
    */
   public static disassemble(bytecode: string) {
     const properBytecode = Utils.prepBytecode(bytecode);
+
     if (!properBytecode) return null;
     const disassembly = [];
 
