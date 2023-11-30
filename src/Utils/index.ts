@@ -1,6 +1,5 @@
-import { Disassembler } from '../disassembler';
 import { EVM_OPCODES } from '../evm_opcodes';
-import { EvmOpcode } from '../types';
+import { DisassembledOpcodeOutput, EvmOpcode } from '../types';
 
 export class Utils {
   /**
@@ -85,7 +84,7 @@ export class Utils {
           hex,
           mnemonic: 'INVALID',
           operand: [],
-        },
+        } as DisassembledOpcodeOutput,
       };
     }
 
@@ -99,7 +98,7 @@ export class Utils {
           hex,
           mnemonic: opcode.mnemonic,
           operand: result.operands,
-        },
+        } as DisassembledOpcodeOutput,
       };
     } else {
       return {
@@ -109,7 +108,7 @@ export class Utils {
           hex,
           mnemonic: opcode.mnemonic,
           operand: [],
-        },
+        } as DisassembledOpcodeOutput,
       };
     }
   }

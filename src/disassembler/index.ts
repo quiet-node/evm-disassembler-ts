@@ -1,4 +1,5 @@
 import { Utils } from '../Utils';
+import { DisassembledOpcodeOutput } from '../types';
 
 export class Disassembler {
   /**
@@ -10,7 +11,7 @@ export class Disassembler {
     const properBytecode = Utils.prepBytecode(bytecode);
 
     if (!properBytecode) return null;
-    const disassembly = [];
+    const disassembly: DisassembledOpcodeOutput[] = [];
 
     for (let i = 0; i < properBytecode.length; i += 2) {
       const hex = properBytecode.substring(i, i + 2);
