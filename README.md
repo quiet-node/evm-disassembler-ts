@@ -1,7 +1,8 @@
 # evm-disassembler-ts (WIP)
 
 ## Abstract
-A tool to disassemble smart contract bytecode into EVM OPCODEs
+
+This tool performs static analysis on EVM bytecode to provide a higher level of abstraction for the bytecode than raw EVM operations.
 
 ## Get started
 
@@ -14,6 +15,7 @@ npm install
 ```
 
 2. Run test
+
 ```bash
 npm run test
 ```
@@ -23,7 +25,7 @@ npm run test
 ```typescript
 import { Disassembler } from './src/disassembler';
 
-const BYTECODE = "6080604052603e80600f5f395ff3fe" // or "0x6080604052603e80600f5f395ff3fe";
+const BYTECODE = '6080604052603e80600f5f395ff3fe'; // or "0x6080604052603e80600f5f395ff3fe";
 
 const disassembly = Disassembler.disassemble(BYTECODE);
 
@@ -31,6 +33,7 @@ console.log(disassembly);
 ```
 
 The `console.log(disassembly)` will print out
+
 ```bash
 [
   { index16: '0x0', hex: '60', mnemonic: 'PUSH1', operand: [ '80' ] },
