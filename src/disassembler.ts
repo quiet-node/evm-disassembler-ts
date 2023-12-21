@@ -1,4 +1,5 @@
-import { DisassembledOpcodeOutput, Helpers } from './utils/helpers';
+import { Helpers } from './utils/helpers';
+import { DisassembledOpcodeOutput } from './utils/types';
 
 export class Disassembler {
   /**

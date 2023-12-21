@@ -1,7 +1,4 @@
-export interface EvmOpcode {
-  mnemonic: string;
-  operand: number;
-}
+import { EvmOpcode } from './types';
 
 /**
  * @dev A mapping of EVM OPCODE IDs with their corresponding mnemonics and operand lengths.

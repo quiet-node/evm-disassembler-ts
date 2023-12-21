@@ -1,11 +1,5 @@
-import { EVM_OPCODES, EvmOpcode } from './evm_opcodes';
-
-export interface DisassembledOpcodeOutput {
-  index16: string;
-  hex: string;
-  mnemonic: string;
-  operand: string[];
-}
+import { EVM_OPCODES } from './evm_opcodes';
+import { DisassembledOpcodeOutput, EvmOpcode } from './types';
 
 export class Helpers {
   /**
