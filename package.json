@@ -1,10 +1,15 @@
 {
   "name": "evm-disassembler-ts",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "This tool performs static analysis on EVM bytecode to provide a higher level of abstraction for the bytecode than raw EVM operations.",
   "scripts": {
     "test": "mocha -r ts-node/register '__tests__/**/*.ts' "
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/quiet-node/evm-disassembler-ts.git"
+  },
+  "homepage": "https://github.com/quiet-node/evm-disassembler-ts?tab=readme-ov-file#evm-bytecode-disassmebler",
   "author": "quiet-node",
   "license": "Apache-2.0",
   "devDependencies": {
