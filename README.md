@@ -9,13 +9,13 @@ Additionally, the tool can automatically detect whether there is IPFS or Swarm h
 ## Install the package
 
 ```bash
-  npm install evm-disassembler-ts
+  npm install evm-disassembler
 ```
 
 ## Basic Example Usage
 
 ```typescript
-import { Disassembler } from 'evm-disassembler-ts';
+import { Disassembler } from 'evm-disassembler';
 
 const BYTECODE = '6080604052603e80600f5f395ff3fe'; // or "0x6080604052603e80600f5f395ff3fe";
 
