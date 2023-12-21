@@ -78,7 +78,7 @@ export class Helpers {
    * @return [index: string, mnemonic: string, operands: string]
    */
   public static parseBytecode(bytecode: string, hex: string, index: number) {
-    const index16 = `0x${index.toString(16)}`;
+    const index16 = `0x${(index / 2).toString(16)}`;
 
     const opcode = EVM_OPCODES.get(hex);
 

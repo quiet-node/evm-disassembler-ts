@@ -53,7 +53,7 @@ describe('EVM Bytecode Disassembler Tests', () => {
 
       expect(result.index).to.eq(expectedOffset);
       expect(result.opcodeRepresentation.hex).to.eq(byte);
-      expect(result.opcodeRepresentation.index16).to.eq('0x4');
+      expect(result.opcodeRepresentation.index16).to.eq('0x2');
       expect(result.opcodeRepresentation.mnemonic).to.eq('PUSH4');
       expect(result.opcodeRepresentation.operand.join(' ')).to.eq(
         expectedOperand.join(' ')
@@ -69,7 +69,7 @@ describe('EVM Bytecode Disassembler Tests', () => {
 
       expect(result.index).to.eq(index);
       expect(result.opcodeRepresentation.hex).to.eq(byte);
-      expect(result.opcodeRepresentation.index16).to.eq('0x8');
+      expect(result.opcodeRepresentation.index16).to.eq('0x4');
       expect(result.opcodeRepresentation.mnemonic).to.eq('MSTORE');
       expect(result.opcodeRepresentation.operand.length).to.eq(0);
     });
@@ -83,7 +83,7 @@ describe('EVM Bytecode Disassembler Tests', () => {
 
       expect(result.index).to.eq(index);
       expect(result.opcodeRepresentation.hex).to.eq(byte);
-      expect(result.opcodeRepresentation.index16).to.eq('0x8');
+      expect(result.opcodeRepresentation.index16).to.eq('0x4');
       expect(result.opcodeRepresentation.mnemonic).to.eq('INVALID');
       expect(result.opcodeRepresentation.operand.length).to.eq(0);
     });
