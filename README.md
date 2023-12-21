@@ -1,7 +1,5 @@
 # EVM Bytecode Disassmebler
 
-## Abstract
-
 A highly lightweight EVM bytecode disassembler, this tool conducts static analysis on Ethereum Virtual Machine (EVM) bytecode. Its purpose is to offer a higher level of abstraction for the bytecode compared to raw EVM operations.
 
 Additionally, the tool can automatically detect whether there is IPFS or Swarm hash CBOR-encoded metadata at the end of the bytecode and exclude it during disassembly.
