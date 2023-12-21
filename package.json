@@ -2,6 +2,7 @@
   "name": "evm-disassembler-ts",
   "version": "0.1.0",
   "description": "This tool performs static analysis on EVM bytecode to provide a higher level of abstraction for the bytecode than raw EVM operations.",
+  "main": "./src/disassembler.ts",
   "scripts": {
     "test": "mocha -r ts-node/register '__tests__/**/*.ts' "
   },
