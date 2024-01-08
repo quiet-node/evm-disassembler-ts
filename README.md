@@ -10,7 +10,7 @@ Additionally, the tool can automatically detect whether there is IPFS or Swarm h
   npm install evm-disassembler
 ```
 
-## Basic Example Usage
+## Basic Usage
 
 ```typescript
 import { Disassembler } from 'evm-disassembler';
